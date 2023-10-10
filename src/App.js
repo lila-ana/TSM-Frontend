@@ -1,23 +1,30 @@
-import {BrowserRouter as Router, Routes, Route, Switch, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
+import {BrowserRouter as Routes, Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
 import Login from './Pages/Login';
-import { Home } from './Pages/Home';
-import RootLayout from './Layouts/RootLayout';
-import HelpLayout from './Layouts/HelpLayout';
-import RegistrationForm from './Pages/RegistrationForm';
-import ContactUs from './Components/Contact/ContactUs';
-import TaskForm from './Components/Sidebar/TaskForm';
-import AuthLayout from './Layouts/AuthLayout';
 import LandingPage from './Pages/LandingPage';
-import SidebarData from './Components/Sidebar/SidebarData';
+import RegistrationForm from './Pages/RegistrationForm';
+import Tasks from './Components/Sidebar/Tasks';
+import SingleTask from './Components/Sidebar/SingleTask';
+import CreateTaskForm from './Components/Sidebar/CreateTaskForm';
+import Dashboard from './Components/Sidebar/Dashboard';
+
 
 
 const router = createBrowserRouter (
   createRoutesFromElements (
     
     <Route>
-      <Route path='/landingpage' element={<LandingPage/>} />
-      <Route path="/home" element={<Home/> }  />
-      {/* <Route path="/sidebar" element={<SidebarData/> }  /> */}
+      <Route path='/' element={<LandingPage/>} />
+      <Route path="/landingpage" element={<LandingPage/> }  />
+      <Route path="login" element={<Login/> }  />
+      <Route path="registrationForm" element={<RegistrationForm/> }  />
+      <Route path="tasks" element={<Tasks/> }  />
+      <Route path="/dashboard/progressdevation" element={<SingleTask/> }  />
+      <Route path="/dashboard/createtask" element={<CreateTaskForm/> }  />
+      <Route path="/dashboard/Daskboard" element={<Dashboard/> }  />
+
+      
+
+      {/* <Route path="/dashboard/" element={<SingleTask/> }  /> */}
 
     </Route>
 

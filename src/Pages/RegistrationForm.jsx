@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
-import {Formik, Form, Field, ErrorMessage, FieldArray, useFormik} from 'formik';
+import {Formik, Form, Field, ErrorMessage} from 'formik';
 import * as Yup from 'yup';
 import UseFetch from "../CRUD/Get/UseFetch";
 import { API_BASE_URL } from "../api/endpoint";
 import axios from "axios";
 
 export default function RegistrationForm() { 
+    const {data: Roles = []} = UseFetch(`${API_BASE_URL}role`)
 
     const initialValues = {
         name: "",
@@ -27,10 +28,6 @@ export default function RegistrationForm() {
             .oneOf([Yup.ref('password')], 'Passwords must match')
             .required('Confirm Password is required'),
     })
-
-
-   
-    const {data: Roles = []} = UseFetch(`${API_BASE_URL}role`)
     
       //Register Users
     const onSubmit = values => {

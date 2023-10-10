@@ -36,7 +36,7 @@ const handleSubmit = (credentials) => {
     .then((response) => {
       // setIsLoggedIn(true);
       // navigate("/home");
-      window.location.replace('/home'); 
+      window.location.replace('/taskForm'); 
       console.log('response', response.data);
     })
     .catch((err) => {
@@ -54,7 +54,7 @@ const handleSubmit = (credentials) => {
         className="relative flex flex-col justify-center items-center overflow-hidden font-quicksand mt-[120px] "
       >
         <div className=" w-full p-6 m-auto bg-[#f8fafc] bg-opacity-50 rounded-md   lg:max-w-xl">
-          <h1 class="text-xl font-bold leading-tight tracking-tight text-fourth md:text-2xl dark:text-white justify-center items-center flex m-[20px] p-[10px]">
+          <h1 className="text-xl font-bold leading-tight tracking-tight text-fourth md:text-2xl dark:text-white justify-center items-center flex m-[20px] p-[10px]">
               Login to your account
           </h1>
           <div>
@@ -85,7 +85,7 @@ const handleSubmit = (credentials) => {
             <button type="reset" className="bg-[#fcfcfc] border-[#8A9B6E] border-[1px] font-nunito text-sm text-[#e11d48] rounded-[12px]  p-[10px] w-[150px] "> Cancel</button>
           </div>
 
-          <p className="mt-8 text-xs font-light text-center text-134e4a["> Don't have an account?
+          <p className="mt-8 text-xs font-light text-center text-[#134e4a]"> Don't have an account?
             <a href="/registrationForm" className="font-bold text-[#e11d48] hover:underline"> Register </a>
           </p>
       </div>
