@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 
+import HorizontalBar from "../Components/Common/HorizontalBar";
 import Sidebar from "../Components/Common/Sidebar";
 
 const Layout = ({ children }) => {
@@ -8,6 +9,7 @@ const Layout = ({ children }) => {
       <Sidebar />
       <div className="flex flex-col col-span-10">
         <div className="scrollbar-hide pr-2 py-6 min-w-[680px]  ">
+          <HorizontalBar/>
           {children}
         </div>
       </div>

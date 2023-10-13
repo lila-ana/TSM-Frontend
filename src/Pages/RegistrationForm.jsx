@@ -5,7 +5,7 @@ import UseFetch from "../CRUD/Get/UseFetch";
 import { API_BASE_URL } from "../api/endpoint";
 import axios from "axios";
 
-export default function RegistrationForm() { 
+export default function RegistrationForm({setTab}) { 
     const {data: Roles = []} = UseFetch(`${API_BASE_URL}role`)
 
     const initialValues = {
@@ -13,7 +13,7 @@ export default function RegistrationForm() {
         email: "",
         password: "",
         confirmPassword: "",
-        role: "",
+        role: "",   
     }
     console.log(initialValues);
     
@@ -39,6 +39,7 @@ export default function RegistrationForm() {
         })
         .then(response => {
           console.log("Success:", response.data);
+          setTab("login")
         })
         .catch(error => {
           console.error("hello", error);
@@ -110,9 +111,7 @@ return (
             <div className="mb-[10px]">
                 <label htmlFor='role'className="block text-sm font-semibold text-fourth">Role</label>
                 <Field as="select" name="role" className="bg-gray-50 border text-gray-500 border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                    <option value="" label="Select role" />
-                    console.log(Roles);
-                    
+                    <option value="" label="Select role" />s                    
                     {Roles?.Roles?.map((role) => (
                         <option key={role.id} value={role.id} label={role.name} />
                     ))}

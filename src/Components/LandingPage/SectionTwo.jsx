@@ -17,7 +17,7 @@ export default function SectionTwo() {
             <div onClick={()=> handleTab("Register")} className="text-[#ffffff] px-[20px] py-[10px] font-quicksand hover:font-extrabold border rounded-[8px] border-[#8A9B6E]">Create Account</div>
         </div>
         <div className="fade">
-            {tab=="login" ? <Login/> : <RegistrationForm/> }
+            {tab=="login" ? <Login/> : <RegistrationForm setTab={setTab}/> }
         </div>
     </div>
     

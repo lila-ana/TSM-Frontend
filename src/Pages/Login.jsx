@@ -1,43 +1,34 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { API_BASE_URL } from '../api/endpoint';
-import { Navigate, useNavigate } from 'react-router-dom';
-import { Field, Form, Formik, useFormik } from 'formik';
-import * as Yup from 'yup';
 
 export default function Login() {
-  
-  // const [isLoggedIn, setIsLoggedIn] = useState(false);
-  // const navigate = useNavigate();
 
-  const initialValues = {
-    email: '',
-    password: '',
-  }
-
-  const validationSchema = Yup.object ({
-    email: Yup.string().email('Invalid email format').required ('Required'),
-    password: Yup.string().required('Password is required'),    
-  })
-
-  // useEffect(() => {
-  //   setIsLoggedIn(true);
-  // }, []);
-
-  // if (isLoggedIn) {
-  //   return <Navigate to="/home" />;
-  // }
+  const [formVals, setFormvals] = useState({});
+  const assignValue = (key, value) => {
+    const formEle = {};
+    formEle[key] = value;
+    let formerElements = formVals;
+    setFormvals({
+      ...formerElements,
+      ...formEle,
+    });
+  };
 
 
 //Login
-const handleSubmit = (credentials) => {
+
+const handleSubmit = (e,formVals) => {
+  console.log(formVals,"credentials")
+  e.preventDefault()
   axios
-    .post(`${API_BASE_URL}login`, credentials)
+    .post(`${API_BASE_URL}login`, formVals)
     .then((response) => {
-      // setIsLoggedIn(true);
-      // navigate("/home");
-      window.location.replace('/taskForm'); 
-      console.log('response', response.data);
+      window.location.replace('/dashboard/Dashboard'); 
+      console.log('response', response.data?.data?.api_token);
+      localStorage.setItem("apiToken", response.data?.data?.api_token);
+      localStorage.setItem("id", response.data?.data?.id);
+
     })
     .catch((err) => {
       console.error('Login error', err);
@@ -45,37 +36,37 @@ const handleSubmit = (credentials) => {
 };
 
   return (
-    <Formik
-      initialValues={initialValues}
-      onSubmit={handleSubmit}
-      validationSchema={validationSchema}
-    >
-      <Form
+    <form onSubmit={(e)=>handleSubmit(e,formVals)}>
+      <div
         className="relative flex flex-col justify-center items-center overflow-hidden font-quicksand mt-[120px] "
       >
         <div className=" w-full p-6 m-auto bg-[#f8fafc] bg-opacity-50 rounded-md   lg:max-w-xl">
           <h1 className="text-xl font-bold leading-tight tracking-tight text-fourth md:text-2xl dark:text-white justify-center items-center flex m-[20px] p-[10px]">
-              Login to your account
+              Sign in
           </h1>
           <div>
             <label htmlFor="email" className="block text-sm font-semibold text-fourth">Email</label>
-            <Field 
+            <input 
                 type="email" 
                 id="email"
                 name="email"
+                onChange={(e) => assignValue("email", e.target.value)}
                 className="block w-full px-4 py-2 mt-2 text-fourth bg-white border rounded-md focus:border-sixth focus:ring-fifth focus:outline-none focus:ring focus:ring-opacity-20"
                 placeholder="example@ienetworks.com"
-              />                          
+              />  
+            {/* <ErrorMessage name='email'/>        */}
           </div>
           <div>
             <label htmlFor="password" className="block text-sm font-semibold text-fourth">Password</label>
-            <Field 
+            <input 
                 type="password" 
                 id="password"
                 name="password"
+                onChange={(e) => assignValue("password", e.target.value)}
                 className="block w-full px-4 py-2 mt-2 text-fourth bg-white border rounded-md focus:border-sixth focus:ring-fifth focus:outline-none focus:ring focus:ring-opacity-20"
                 placeholder="password"
-              />                          
+              />     
+            {/* <ErrorMessage name='password'/>            */}
           </div>
 
           <a href="#" className="text-xs text-[#e11d48] hover:underline"> Forget Password? </a>
@@ -89,7 +80,7 @@ const handleSubmit = (credentials) => {
             <a href="/registrationForm" className="font-bold text-[#e11d48] hover:underline"> Register </a>
           </p>
       </div>
-    </Form>
-  </Formik>
+    </div>
+  </form>
   )
 }
