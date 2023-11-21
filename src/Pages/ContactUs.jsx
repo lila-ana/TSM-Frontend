@@ -1,9 +1,9 @@
 import React from 'react';
 import { ErrorMessage, Field, Formik, Form } from 'formik';
 import * as Yup from 'yup';
-import { API_BASE_URL } from '../../api/endpoint';
+import { API_BASE_URL } from '../api/endpoint';
 import axios from 'axios';
-import Layout from '../../Layouts/Layout';
+import Layout from '../Layouts/Layout';
 
 export default function ContactUs() { 
 

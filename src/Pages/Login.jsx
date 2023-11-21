@@ -40,7 +40,7 @@ const handleSubmit = (e,formVals) => {
       <div
         className="relative flex flex-col justify-center items-center overflow-hidden font-quicksand mt-[120px] "
       >
-        <div className=" w-full p-6 m-auto bg-[#f8fafc] bg-opacity-50 rounded-md   lg:max-w-xl">
+        <div className=" w-full p-6 m-auto bg-[#f8fafc] bg-opacity-50 rounded-md lg:max-w-xl">
           <h1 className="text-xl font-bold leading-tight tracking-tight text-fourth md:text-2xl dark:text-white justify-center items-center flex m-[20px] p-[10px]">
               Sign in
           </h1>

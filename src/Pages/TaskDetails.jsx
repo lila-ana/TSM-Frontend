@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
-import UseFetch from "../../CRUD/Get/UseFetch";
-import { API_BASE_URL } from "../../api/endpoint";
-import Layout from "../../Layouts/Layout";
+import UseFetch from "../CRUD/Get/UseFetch";
+import { API_BASE_URL } from "../api/endpoint";
+import Layout from "../Layouts/Layout";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 
@@ -9,8 +9,6 @@ export default function TaskDetails() {
     const id = useParams(`${API_BASE_URL}tasks`).id
     const {data: TaskDetails=[]} = UseFetch(`${API_BASE_URL}taskdetails/${id}`)
     console.log("taskdetails", TaskDetails);
-    
- 
 
  return (
     <Layout>

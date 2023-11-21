@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Layout from "../../Layouts/Layout";
-import UseFetch from "../../CRUD/Get/UseFetch";
-import { API_BASE_URL } from "../../api/endpoint";
+import Layout from "../Layouts/Layout";
+import UseFetch from "../CRUD/Get/UseFetch";
+import { API_BASE_URL } from "../api/endpoint";
 
 export default function Dashboard() {
   

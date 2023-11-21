@@ -1,7 +1,7 @@
 import React from "react";
-import UseFetch from "../../CRUD/Get/UseFetch";
-import { API_BASE_URL } from "../../api/endpoint";
-import Layout from "../../Layouts/Layout";
+import UseFetch from "../CRUD/Get/UseFetch";
+import { API_BASE_URL } from "../api/endpoint";
+import Layout from "../Layouts/Layout";
 import { useParams } from "react-router-dom";
 
 export default function Tasks() {

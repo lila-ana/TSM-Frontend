@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import UseFetch from "../../CRUD/Get/UseFetch";
-import { API_BASE_URL } from "../../api/endpoint";
+import React, { useState } from "react";
+import UseFetch from "../CRUD/Get/UseFetch";
+import { API_BASE_URL } from "../api/endpoint";
 import axios from "axios";
-import Layout from "../../Layouts/Layout";
+import Layout from "../Layouts/Layout";
 import Select from "react-select";
 
 export default function CreateTaskForm() { 
@@ -58,7 +58,7 @@ return (
             onSubmit={(e)=>handleSubmit(e,formVals)}
         >
             <div 
-                className="relative flex flex-col justify-center items-center mt-[80px] overflow-hidden font-quicksand"
+                className="flex flex-col justify-center items-center mt-[80px] overflow-hidden font-quicksand"
             >
                 <div className=" w-full p-6 m-auto bg-[#f8fafc] bg-opacity-50 rounded-md lg:max-w-xl">
                     <h1 className="text-xl font-extrabold leading-tight tracking-tight text-fourth md:text-2xl dark:text-white justify-center items-center flex mb-[20px]">
@@ -74,7 +74,7 @@ return (
                             name='title'
                             placeholder="Task Ttile"
                             onChange={(e) => assignValue("title", e.target.value)}
-                            className="bg-gray-50 border text-gray-500 border-gray-300 text-sm rounded-lg  block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            className="bg-gray-50 border text-gray-500 border-gray-300 text-sm rounded-lg  block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white "
                         />
                     </div>
                     <div className="grid grid-cols-3 gap-[20px]">
@@ -88,7 +88,7 @@ return (
                                 name='start_date'
                                 placeholder="start_date"
                                 onChange={(e) => assignValue("start_date", e.target.value)}
-                                className="bg-gray-50 border text-gray-500 border-gray-300 text-sm rounded-lg  block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                className="bg-gray-50 border text-gray-500 border-gray-300 text-sm rounded-lg  block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white "
                             />
                         </div>
                         <div className="mb-[10px] col-span-1">
@@ -101,7 +101,7 @@ return (
                                 name='end_date'
                                 placeholder="end_date"
                                 onChange={(e) => assignValue("end_date", e.target.value)}
-                                className="bg-gray-50 border text-gray-500 border-gray-300 text-sm rounded-lg  block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                className="bg-gray-50 border text-gray-500 border-gray-300 text-sm rounded-lg  block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white "
                             />
                         </div>
                         <div className="mb-[10px] col-span-1">
@@ -114,7 +114,7 @@ return (
                                 name='planned_progress'
                                 placeholder="Planned progress"
                                 onChange={(e) => assignValue("planned_progress", e.target.value)}
-                                className="bg-gray-50 border text-gray-500 border-gray-300 text-sm rounded-lg  block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                className="bg-gray-50 border text-gray-500 border-gray-300 text-sm rounded-lg  block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white "
                             />
                         </div>
                     </div>
@@ -128,11 +128,11 @@ return (
                             name='description'
                             placeholder="Task description"
                             onChange={(e) => assignValue("description", e.target.value)}
-                            className="bg-gray-50 border text-gray-500 border-gray-300 text-sm rounded-lg  block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            className="bg-gray-50 border text-gray-500 border-gray-300 text-sm rounded-lg  block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white "
                         />
                     </div>
                     <div className="mb-[10px]">
-                        <label htmlFor='assigned_to'className="block text-sm font-semibold text-fourth">
+                        <label htmlFor='assigned_to'className=" text-sm font-semibold text-fourth">
                             Assigned To
                         </label>
                         <Select 
@@ -140,8 +140,10 @@ return (
                             cacheOptions
                             defaultOptions
                             options={userList}
+                            // key={value.id}
+                            // value={}
                             onChange={handleSelectChange}
-                            className="bg-gray-50 border text-gray-500 border-gray-300 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            className="bg-gray-50 border text-gray-500 border-gray-300 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white ">
                         </Select>
                     </div>
                     <div className="flex m-[10px] gap-[50px] items-center justify-center mt-[20px]">
